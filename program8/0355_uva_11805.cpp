@@ -3,7 +3,7 @@ https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&
 */
 
 
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 #define int long long
