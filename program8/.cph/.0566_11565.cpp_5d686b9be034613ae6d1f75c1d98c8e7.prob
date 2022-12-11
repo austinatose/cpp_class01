@@ -1,0 +1,1 @@
+{"name":"Local: 0566_11565","url":"/Users/austin/Documents/GitHub/CppClass01/program8/0566_11565.cpp","tests":[{"id":1669254375943,"input":"2\n1 2 3\n6 6 14","output":"No solution.\n1 2 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/austin/Documents/GitHub/CppClass01/program8/0566_11565.cpp","group":"local","local":true}
