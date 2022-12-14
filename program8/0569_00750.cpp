@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -38,14 +37,11 @@ using namespace std;
 int d, x, y, anscount;
 int row[9];
 
-bool check(int y, int x) {
-    rrange(i, 1, y - 1) {if (row[i] == x || (abs(row[i] - x) == abs(i - y))) return false;}
-    return true;
-}
-
 void find(int testindex) {
     rrange(i, 1, 8) {
-        if (check(testindex, i)) {
+        bool go = true;
+        range(k, 1, testindex) {if (row[k] == i || (abs(row[k] - i) == abs(k - testindex))) go = false;}
+        if (go) {
             row[testindex] = i;
             if (testindex == 8 && row[y] == x) {
                 anscount++;
