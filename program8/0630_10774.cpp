@@ -51,7 +51,7 @@ int32_t main() {
         repcount = 0;
         survivor = 0;
         int k = 1;
-        generate(all(l), [&]{return k++;});
+        generate(begin(l), end(l), [&]{return k++;});
 
         auto iter = begin(l);
         while (l.size() > 1) {
