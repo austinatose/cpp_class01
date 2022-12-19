@@ -5,6 +5,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "ostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "random": "cpp"
     }
 }

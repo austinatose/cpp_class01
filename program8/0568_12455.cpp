@@ -7,11 +7,14 @@ using namespace std;
 #define pi pair<int,int> 
 #define pii pair<int,pi>
 #define vp vector<pi>
-#define p_q priority_queue
+#define pq priority_queue
+#define pqi pq<int>
 #define mp make_pair
 #define pb push_back
-#define f first
-#define s second
+#define fi first
+#define se second
+#define all(x) x.begin(), x.end()
+#define erasee(v, x) v.erase(remove(all(v), x), v.end());
 #define ms(a, x) memset(a, x, sizeof(a))
 #define fil(a, x) fill(a, a + sizeof(a), x)
 #define range(a, b, n) for(int a = b; a < n; a++)
@@ -26,8 +29,9 @@ using namespace std;
 #define maxx(a, b) a = max(a, b)
 #define minn(a, b) a = min(a, b)
 #define itarr(a, n) for (auto i : n)
+#define invec(v, x) find(v.begin(), v.end(), x) != v.end()
 #define MOD 13371337
-#define NUM 505
+#define NUM 5000007
 #define INF 10000000000
 
 int t, n, p;
