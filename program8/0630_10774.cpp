@@ -42,23 +42,28 @@ using namespace std;
 // For each test case, print the serial number of the case, a colon, an space, total number of repetitions (the number of times the elimination process is done after the initial elimination round with n people), an space and the position of the survivor at last.
 
 int tc, n, repcount, survivor;
-list<int> l;
 
 int32_t main() {
     cin >> tc;
     rrange(i, 1, tc) {
         cin >> n;
+        list<int> l(n);
         repcount = 0;
         survivor = 0;
-        l.clear();
-        range(j, 1, n + 1) l.pb(j);
+        int k = 1;
+        generate(all(l), [&]{return k++;});
+
+        auto iter = begin(l);
         while (l.size() > 1) {
+            iter = l.erase(iter);
+            if (iter == end(l)) iter = begin(l);
             repcount++;
-            survivor = l.back();
-            l.pop_back();
-            l.push_front(l.back());
-            l.pop_back();
+            survivor = *iter;
+            iter++;
+            if (iter == end(l)) iter = begin(l);
         }
+        survivor = *begin(l);
         cout << "Case " << i << ": " << repcount << " " << survivor << endl;
+
     }
 }
