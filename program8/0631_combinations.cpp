@@ -34,36 +34,18 @@ using namespace std;
 #define NUM 5000007
 #define INF 10000000000
 
-int tc, n, repcount, survivor;
+// At first, there are n people numbered 1 to n around a circle and every second remaining person will be eliminated until only one survives. Let the number of the survivor be x. The process is then repeated with x number of people and let the survivor number is y. The process then starts with y number of people and so on. The repetition ends when the survivor is in the last position in the circle.
 
-void print(list<int> l) {
-    for (auto i : l) cout << i << " ";
-    cout << endl;
-}
+// Example with n = 5:
+// After the first elimination round, the survivor is person 3. Because this is is not the last person in the circle, a new elimination round with 3 people is started.
+
+// For each test case, print the serial number of the case, a colon, an space, total number of repetitions (the number of times the elimination process is done after the initial elimination round with n people), an space and the position of the survivor at last.
+
+int n, k;
 
 int32_t main() {
-    cin >> tc;
-    rrange(i, 1, tc) {
-        cin >> n;
-        list<int> l;
-        repcount = 0;
-        survivor = 0;
-        // generate(begin(l), end(l), [&]{return k++;}); not working on macos
-        rrange(j, 1, n) l.pb(j);
-        auto iter = begin(l);
-        while (l.size() > 1) {
-            print(l);
-            cout << *iter << endl;
-            iter++;
-            if (iter == end(l)) {iter = begin(l);}
-            cout << *iter << endl;
-            iter = l.erase(iter);
-            cout << *iter << endl;
-            if (iter == end(l)) iter = begin(l);
-            repcount++;
-        }
-        survivor = *begin(l);
-        cout << "Case " << i << ": " << repcount << " " << survivor << endl;
-
-    }
+    cin >> n >> k;
+    int nums[n];
+    iota(nums, nums + n, 1);
+    
 }
