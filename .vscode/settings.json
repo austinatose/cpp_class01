@@ -6,6 +6,10 @@
         "typeinfo": "cpp",
         "ostream": "cpp",
         "ios": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "list": "cpp",
+        "stack": "cpp",
+        "filesystem": "cpp",
+        "queue": "cpp"
     }
 }

@@ -9,7 +9,7 @@ using namespace std;
 #define vp vector<pi>
 #define pq priority_queue
 #define pqi pq<int>
-#define mp make_pairq
+#define mp make_pair
 #define pb push_back
 #define fi first
 #define se second
@@ -34,38 +34,51 @@ using namespace std;
 #define NUM 5000007
 #define INF 10000000000
 
-int tc, n, repcount, survivor;
+struct TreeNode {
+    int val;
+    TreeNode* leftc;
+    TreeNode* rightc;
+};
 
-int josephus(int n, int k) {
-    int s = 0;
-    for(int i=2;i<=n;i++)
-        s = (s+k)%i; // next person after the one that is killed
-    return s+1;
+vint path;
+
+void preorder(TreeNode *curr) {
+    if (curr == NULL) return;
+    path.pb(curr -> val);
+    preorder(curr -> leftc);
+    preorder(curr -> rightc);
 }
 
 int32_t main() {
-    cin >> tc;
-    rrange(i, 1, tc) {
-        cin >> n;
-        list<int> l;
-        repcount = 0;
-        survivor = 0;
-        int k = 1;
-        generate(begin(l), end(l), [&](){return k++;});
 
-        auto iter = begin(l);
+    // prepare data ---------------------------------
 
-        while (l.size() > 1) {
-            advance(iter, josephus(n, 2) - 1);
-            iter = l.erase(iter);
-            cout << *iter << endl;
-            if (iter == end(l)) iter = begin(l);
-            repcount++;
-            n = l.size();
-        }
-        
-        survivor = *begin(l);
-        cout << "Case " << i << ": " << repcount << " " << survivor << endl;
+    /*
+        1
+    2       3
+ 4   5    6    7    
+    */
 
-    }
+   TreeNode left_left = {4, NULL, NULL};
+   TreeNode left_right = {5, NULL, NULL};
+   TreeNode left = {2, &left_left, &left_right};
+
+   TreeNode right_left = {6, NULL, NULL};
+   TreeNode right_right = {7, NULL, NULL};
+   TreeNode right = {3, &right_left, &right_right};
+
+   TreeNode root = {1, &left, &right};
+
+    // algo ------------------------
+   preorder(&root);
+   
+   // print result ------------------
+
+   for(int i : path) {
+    printf("%d ", i);
+   }
+
+
+
+    return 0;
 }
